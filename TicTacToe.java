@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class TicTacToe {
 
     public static void main(String[] args) {
@@ -11,6 +13,11 @@ public class TicTacToe {
 
         printGameBoard(gameBoard);
 
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter your placement (1-9)");
+        int pos = scan.nextInt();
+
+        System.out.println(pos);
     }
 
     // Prints tic-tac-toe board out in the console
