@@ -9,13 +9,18 @@ public class TicTacToe {
             {'-', '+', '-', '+', '-'}, 
             {' ', '|', ' ', '|', ' '}};
 
-        for(char[] row : gameBoard) {
+        printGameBoard(gameBoard);
+
+    }
+
+    // Prints tic-tac-toe board out in the console
+    public static void printGameBoard(char[][] gameBoard) {
+                for(char[] row : gameBoard) {
             for(char c : row) {
                 System.out.print(c);
             }
             System.out.println();
         }
-
     }
 
 }
