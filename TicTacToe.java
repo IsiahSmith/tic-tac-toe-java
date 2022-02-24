@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+import java.util.Random;
+
 public class TicTacToe {
 
     public static void main(String[] args) {
@@ -13,13 +15,17 @@ public class TicTacToe {
 
         printGameBoard(gameBoard);
 
+        // Asks user to enter placement, playPiece which updates game board with users input
         Scanner scan = new Scanner(System.in);
         System.out.println("Enter your placement (1-9)");
-        int pos = scan.nextInt();
+        int playerPos = scan.nextInt();
 
-        System.out.println(pos);
+        playPiece(gameBoard, playerPos, "player");
 
-        playerPlacement(gameBoard, pos, "player");
+        // Does a random placement for the cpus turn, (the 'opponent')
+        Random rand = new Random();
+        int cpuPos = rand.nextInt(9) + 1;
+        playPiece(gameBoard, cpuPos, "cpu");
 
         printGameBoard(gameBoard);
 
@@ -35,7 +41,7 @@ public class TicTacToe {
         }
     }
 
-    public static void playerPlacement(char[][] gameBoard, int pos, String user) {
+    public static void playPiece(char[][] gameBoard, int pos, String user) {
 
         char symbol = ' ';
 
@@ -45,6 +51,7 @@ public class TicTacToe {
             symbol = 'O';
         }
 
+        // Updates square of game board to selected space, based off user input
         switch(pos) {
             case 1:
                 gameBoard [0][0] = symbol;
