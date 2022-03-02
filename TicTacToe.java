@@ -25,12 +25,20 @@ public class TicTacToe {
             Scanner scan = new Scanner(System.in);
             System.out.println("Enter your placement (1-9)");
             int playerPos = scan.nextInt();
+            while(playerPositions.contains(playerPos) || cpuPositions.contains(playerPos)) {
+                System.out.println("position taken! please choose an empty position");
+                playerPos = scan.nextInt();
+            }
 
             playPiece(gameBoard, playerPos, "player");
 
             // Does a random placement for the cpus turn, (the 'opponent')
             Random rand = new Random();
             int cpuPos = rand.nextInt(9) + 1;
+            while(playerPositions.contains(cpuPos) || cpuPositions.contains(cpuPos)) {
+                cpuPos = rand.nextInt(9) + 1;
+            }
+
             playPiece(gameBoard, cpuPos, "cpu");
 
             printGameBoard(gameBoard);
