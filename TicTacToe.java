@@ -73,6 +73,7 @@ public class TicTacToe {
 
         char symbol = ' ';
 
+        // Determines which symbol is played on board based on player
         if(user.equals("player")) {
             symbol = 'X';
             playerPositions.add(pos);
@@ -117,6 +118,7 @@ public class TicTacToe {
 
     public static String checkWinner() {
 
+        // List of all winning combinations
         List topRow = Arrays.asList(1,2,3);
         List midRow = Arrays.asList(4,5,6);
         List botRow = Arrays.asList(7,8,9);
@@ -136,6 +138,7 @@ public class TicTacToe {
         winning.add(cross1);
         winning.add(cross2);
 
+        // Messages that display when a game ends
         for(List l : winning) {
             if(playerPositions.containsAll(l)) {
                 return "YOU WIN :)";
